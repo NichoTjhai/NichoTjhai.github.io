@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="625px" height="2px" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1 0 0 1 -773 -705 )">
     <path d="M 0 0.5  L 624 0.5  " stroke-width="1" stroke-dasharray="0" stroke="rgba(160, 157, 153, 1)" fill="none" transform="matrix(1 0 0 1 773 705 )" class="stroke" />
   </g>
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="625px" height="2px" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1 0 0 1 -773 -705 )">
+    <path d="M 0 0.5  L 624 0.5  " stroke-width="1" stroke-dasharray="0" stroke="rgba(160, 157, 153, 1)" fill="none" transform="matrix(1 0 0 1 773 705 )" class="stroke" />
+  </g>
+>>>>>>> 5ce732a81feadf7be5c1709c9b1df96bc7d141e3
 </svg>

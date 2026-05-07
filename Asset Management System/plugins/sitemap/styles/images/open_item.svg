@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H9L4.5 6L0 0Z" fill="#718096"/>
 </svg>
+=======
+<svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H9L4.5 6L0 0Z" fill="#718096"/>
+</svg>
+>>>>>>> 5ce732a81feadf7be5c1709c9b1df96bc7d141e3

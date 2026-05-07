@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 4L4 12" stroke="#64748b" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4 4L12 12" stroke="#64748b" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+=======
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4L4 12" stroke="#64748b" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 4L12 12" stroke="#64748b" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+>>>>>>> 5ce732a81feadf7be5c1709c9b1df96bc7d141e3
