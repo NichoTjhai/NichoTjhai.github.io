@@ -245,6 +245,8 @@
 
    /* Lightbox
     * ------------------------------------------------------ */
+    /* Lightbox
+     * ------------------------------------------------------ */
     const ssLightbox = function() {
 
         const folioLinks = document.querySelectorAll('.folio-list__item-link');
@@ -252,31 +254,44 @@
 
         folioLinks.forEach(function(link) {
             let modalbox = link.getAttribute('href');
-            let instance = basicLightbox.create(
-                document.querySelector(modalbox),
-                {
-                    onShow: function(instance) {
-                        //detect Escape key press
-                        document.addEventListener("keydown", function(event) {
-                            event = event || window.event;
-                            if (event.keyCode === 27) {
-                                instance.close();
+            let instance = null;
+
+            // FIX: Only initialize Lightbox if the link starts with '#'
+            if (modalbox && modalbox.startsWith('#')) {
+                const modalElement = document.querySelector(modalbox);
+                
+                if (modalElement) {
+                    instance = basicLightbox.create(
+                        modalElement,
+                        {
+                            onShow: function(instance) {
+                                // detect Escape key press
+                                document.addEventListener("keydown", function(event) {
+                                    event = event || window.event;
+                                    if (event.keyCode === 27) {
+                                        instance.close();
+                                    }
+                                });
                             }
-                        });
-                    }
+                        }
+                    );
                 }
-            )
+            }
             modals.push(instance);
         });
 
         folioLinks.forEach(function(link, index) {
             link.addEventListener("click", function(event) {
-                event.preventDefault();
-                modals[index].show();
+                // FIX: Only prevent default and show modal if we have a valid instance
+                if (modals[index]) {
+                    event.preventDefault();
+                    modals[index].show();
+                }
+                // If modals[index] is null, the browser will just follow the link normally
             });
         });
 
-    };  // end ssLightbox
+    };  // end ssLightbox  // end ssLightbox
 
 
    /* Alert boxes
