@@ -247,51 +247,51 @@
     * ------------------------------------------------------ */
     /* Lightbox
      * ------------------------------------------------------ */
-    const ssLightbox = function() {
+const ssLightbox = function() {
 
-        const folioLinks = document.querySelectorAll('.folio-list__item-link');
-        const modals = [];
+    const folioLinks = document.querySelectorAll('.folio-list__item-link');
+    const modals = [];
 
-        folioLinks.forEach(function(link) {
-            let modalbox = link.getAttribute('href');
-            let instance = null;
+    folioLinks.forEach(function(link) {
+        let modalbox = link.getAttribute('href');
+        let instance = null;
 
-            // FIX: Only initialize Lightbox if the link starts with '#'
-            if (modalbox && modalbox.startsWith('#')) {
+        // Check if modalbox exists and specifically starts with '#'
+        // Also check if it's NOT just a '#' (which is a dummy link)
+        if (modalbox && modalbox.startsWith('#') && modalbox.length > 1) {
+            try {
                 const modalElement = document.querySelector(modalbox);
                 
                 if (modalElement) {
-                    instance = basicLightbox.create(
-                        modalElement,
-                        {
-                            onShow: function(instance) {
-                                // detect Escape key press
-                                document.addEventListener("keydown", function(event) {
-                                    event = event || window.event;
-                                    if (event.keyCode === 27) {
-                                        instance.close();
-                                    }
-                                });
-                            }
+                    instance = basicLightbox.create(modalElement, {
+                        onShow: function(instance) {
+                            document.addEventListener("keydown", function(event) {
+                                if (event.key === "Escape") instance.close();
+                            });
                         }
-                    );
+                    });
                 }
+            } catch (e) {
+                // If querySelector still fails for some reason, catch it here
+                console.error("Invalid selector: " + modalbox);
             }
-            modals.push(instance);
-        });
+        }
+        
+        modals.push(instance);
+    });
 
-        folioLinks.forEach(function(link, index) {
-            link.addEventListener("click", function(event) {
-                // FIX: Only prevent default and show modal if we have a valid instance
-                if (modals[index]) {
-                    event.preventDefault();
-                    modals[index].show();
-                }
-                // If modals[index] is null, the browser will just follow the link normally
-            });
+    folioLinks.forEach(function(link, index) {
+        link.addEventListener("click", function(event) {
+            // Only prevent default if we actually have a Lightbox instance
+            if (modals[index]) {
+                event.preventDefault();
+                modals[index].show();
+            }
+            // If modals[index] is null, it's a normal link (like your login_page.html)
+            // and the browser will navigate to it normally.
         });
-
-    };  // end ssLightbox  // end ssLightbox
+    });
+};
 
 
    /* Alert boxes
